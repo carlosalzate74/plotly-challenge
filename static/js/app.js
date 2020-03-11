@@ -1,6 +1,4 @@
 function buildMetadata(sample) {
-    // BONUS: Build the Gauge Chart
-    // buildGauge(data.WFREQ);
 
     d3.json(`metadata/${sample}`).then(function(data) {
       d3.select("#sample-metadata").html("")
@@ -31,22 +29,24 @@ function buildMetadata(sample) {
           showlegend: false,
           name: 'WFREQ',
           text: level,
-          hoverinfo: 'text+name'},
+          hoverinfo: 'text+name'
+        },
         { values: [1,1,1,1,1,1,1,1,1,9],
-        rotation: 90,
-        text: ['8-9', '7-8', '6-7', '5-6', '4-5', '3-4', '2-3', '1-2', '0-1', ''],
-        textinfo: 'text',
-        textposition:'inside',
-        marker: {colors:['rgba(25, 77, 48, 0.5)', 'rgba(36, 117, 66, .5)', 'rgba(48, 156, 88, .5)', 
-                         'rgba(60, 195, 109, .5)',   'rgba(99, 207, 139, 0.5)', 'rgba(138, 219, 168, .5)',
-                         'rgba(177, 231, 197, .5)',   'rgba(196, 237, 211, 0.5)', 'rgba(236, 249, 241, .5)',
-                         'rgba(0,0,0, 0.5'
-                         ]},
-        hoverinfo: 'label',
-        hole: .5,
-        type: 'pie',
-        showlegend: false
-      }];
+          rotation: 90,
+          text: ['8-9', '7-8', '6-7', '5-6', '4-5', '3-4', '2-3', '1-2', '0-1', ''],
+          textinfo: 'text',
+          textposition:'inside',
+          marker: {colors:['rgba(25, 77, 48, 0.5)', 'rgba(36, 117, 66, .5)', 'rgba(48, 156, 88, .5)', 
+                          'rgba(60, 195, 109, .5)',   'rgba(99, 207, 139, 0.5)', 'rgba(138, 219, 168, .5)',
+                          'rgba(177, 231, 197, .5)',   'rgba(196, 237, 211, 0.5)', 'rgba(236, 249, 241, .5)',
+                          'rgba(0,0,0, 0.5'
+                          ]
+                  },
+          hoverinfo: 'text',
+          hole: .5,
+          type: 'pie',
+          showlegend: false
+        }];
 
       let layout = {
         shapes:[{
@@ -58,7 +58,9 @@ function buildMetadata(sample) {
             }
           }],
         width: 560, height: 500,
-        title: { text: "Belly Button Washing Frequency<br><span style='font-size:0.8em;'>Scrubs Per Week</span>" },
+        title: { 
+          text: "Belly Button Washing Frequency<br><span style='font-size:0.8em;'>Scrubs Per Week</span>" 
+        },
         xaxis: {zeroline:false, showticklabels:false,
                    showgrid: false, range: [-1, 1]},
         yaxis: {zeroline:false, showticklabels:false,
